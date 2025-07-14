@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  redis-stack:
+    image: redis/redis-stack
+    container_name: redis-stack
+    ports:
+      - "6379:6379"     # Redis CLI / Client
+      - "8001:8001"     # Redis Stack Web UI
+    volumes:
+      - redis_data:/data
+    restart: always
+
+volumes:
+  redis_data:
